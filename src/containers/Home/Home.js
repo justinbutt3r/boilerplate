@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router'
-import logo from './logo.svg';
-import styles from './App.scss';
+import logo from '../App/logo.svg';
+import styles from '../App/App.scss';
 console.log(styles);
 
-class App extends Component {
+class Home extends Component {
   render() {
     return (
       <div className={styles.App}>
@@ -15,15 +14,9 @@ class App extends Component {
         <p className={styles.intro}>
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-
-        <Switch>
-          <Route exact path="/" component={require('../Home/Home').default}/>
-          <Route exact path="/test" component={require('../Home/Home').default}/>
-        </Switch>
-
       </div>
     );
   }
 }
 
-export default App;
+export default Home;
