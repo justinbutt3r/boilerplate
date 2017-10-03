@@ -16,9 +16,7 @@ class App extends Component {
         </p>
 
         <Switch>
-          <Route exact path="/" component={require('../ListPage/ListPage').default}/>
-          <Route exact path="/create" component={require('../ListPage/CreatePage').default}/>
-          <Route exact path="/test" component={require('../Home/Home').default}/>
+          <Route exact path="/" component={require('../Home/Home').default}/>
         </Switch>
 
       </div>
