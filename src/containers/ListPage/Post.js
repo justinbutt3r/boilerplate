@@ -1,4 +1,7 @@
 import React from 'react'
+import { graphql } from 'react-apollo'
+import gql from 'graphql-tag'
+import { withRouter } from 'react-router';
 
 class Post extends React.Component {
 
@@ -11,6 +14,7 @@ class Post extends React.Component {
             backgroundImage: `url(${this.props.post.imageUrl})`,
             backgroundSize: 'cover',
             paddingBottom: '100%',
+            backgroundPosition: 'center'
           }}
         />
         <div className='pt3'>
@@ -21,11 +25,20 @@ class Post extends React.Component {
     )
   }
 
-  handleDelete = () => {
+  handleDelete = async () => {
     // TODO: delete post before reloading posts
-    this.props.refresh()
+    await this.props.mutate({variables: {id: this.props.post.id}})
+    this.props.history.replace('/')
   }
 
 }
 
-export default Post
+const deleteMutation = gql`
+mutation deletePost($id: ID!) {
+  deletePost(id: $id) {
+    id
+  }
+}
+`
+const PostWithMutation = graphql(deleteMutation)(withRouter(Post))
+export default PostWithMutation
