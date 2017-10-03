@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../App/logo.svg';
 import styles from '../App/App.scss';
-console.log(styles);
 
 class Home extends Component {
   render() {
