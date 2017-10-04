@@ -10,6 +10,8 @@ $susy: (
     'container-spread': 'narrow',
 );
 
+//Style Variables
+
 //colors
 
 //breakpoints
@@ -53,7 +55,7 @@ h2 {
     @include typi('h2');
 }
 
-h31 {
+h3 {
     @include typi('h3');
 }
 
