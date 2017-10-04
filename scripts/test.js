@@ -17,7 +17,10 @@ require('../config/env');
 
 const jest = require('jest');
 const argv = process.argv.slice(2);
+// const Adapter = require('enzyme-adapter-react-15');
+// const Enzyme = require('Enzyme');
 
+// Enzyme.configure({ adapter: new Adapter() })
 // Watch unless on CI or in coverage mode
 if (!process.env.CI && argv.indexOf('--coverage') < 0) {
   argv.push('--watch');

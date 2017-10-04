@@ -55,7 +55,11 @@
     "whatwg-fetch": "2.0.3"
   },
   "devDependencies": {
+    "enzyme": "^3.1.0",
+    "enzyme-adapter-react-16": "^1.0.1",
     "node-sass": "^4.5.3",
+    "react-addons-test-utils": "^15.6.2",
+    "react-test-renderer": "16",
     "sass-loader": "^6.0.6"
   },
   "scripts": {
@@ -70,6 +74,8 @@
       "src/**/*.{js,jsx}"
     ],
     "setupFiles": [
+      "<rootDir>/shim.js",
+      "<rootDir>/config/jest/enzyme.js",
       "<rootDir>/config/polyfills.js"
     ],
     "testMatch": [
