@@ -9,4 +9,4 @@
 - <del>Mappy Bp</del>
 - <del>MS and Typi</del>
 - <del>Testing: Jest and Enzyme</del>
-- Plop
+- <del>Plop</del>
