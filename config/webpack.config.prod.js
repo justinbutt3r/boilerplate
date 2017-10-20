@@ -167,19 +167,17 @@ module.exports = {
           // in the main CSS file.
           {
             test: /\.css$/,
-            loader: ExtractTextPlugin.extract(
-              Object.assign(
+            use: ExtractTextPlugin.extract({
+              fallback: 'styles-loader',
+              use: [
                 {
-                  fallback: require.resolve('style-loader'),
-                  use: [
-                    {
                       loader: require.resolve('css-loader'),
                       options: {
                         importLoaders: 1,
                         modules: true,
                         minimize: true,
                         sourceMap: true,
-                       },
+                      },
                     },
                     {
                       loader: require.resolve('postcss-loader'),
@@ -201,12 +199,31 @@ module.exports = {
                         ],
                       },
                     },
-                  ],
+              ]
+            })
+          },
+          {
+            test: /\.scss$/,
+            use: ExtractTextPlugin.extract({
+              fallback: 'style-loader',
+              use: [
+                {
+                  loader: 'css-loader',
+                  options: {
+                    modules: true,
+                    sourceMap: true,
+                    importLoaders: 2,
+                    localIdentName: '[name]__[local]___[hash:base64:5]'
+                  }
                 },
-                extractTextPluginOptions
-              )
-            ),
-            // Note: this won't work without `new ExtractTextPlugin()` in `plugins`.
+                'sass-loader'
+              ]
+            })
+            // loaders: [
+            //   require.resolve('style-loader'),
+            //   require.resolve('css-loader'),
+            //   require.resolve('sass-loader')
+            // ]
           },
           // "file" loader makes sure assets end up in the `build` folder.
           // When you `import` an asset, you get its filename.
