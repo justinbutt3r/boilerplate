@@ -1,0 +1,30 @@
+/**
+*
+* {{ properCase name }}
+*
+*/
+
+import React from 'react';
+//import PropTypes from 'prop-types'; //uncomment if using proptypes
+{{#if wantCSS}}
+import styles from './{{ properCase name }}.scss';
+{{/if}}
+
+export default class {{ properCase name }} extends React.Component { // eslint-disable-line react/prefer-stateless-function
+
+    render() {
+        return (
+            {{#if wantCSS}}
+            <div className={{curly true}}styles.{{ properCase name }}{{curly}}>
+            {{else}}
+            <div>
+            {{/if}}
+            </div>
+        );
+    }
+}
+/*
+{{ properCase name }}.propTypes = {
+
+};
+*/
