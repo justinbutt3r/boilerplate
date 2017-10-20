@@ -1,0 +1,62 @@
+@import '~modularscale-sass/stylesheets/modularscale';
+@import "~typi";
+@import "~mappy-breakpoints";
+
+//grid
+$susy: (
+    'columns': susy-repeat(12),
+    'gutters': 0.25,
+    'spread': 'narrow',
+    'container-spread': 'narrow',
+);
+
+//Style Variables
+
+//colors
+
+//breakpoints
+$breakpoints: (
+    small: 640px,
+    medium: 1002px,
+    large: 1120px
+);
+
+//typography
+$modularscale: (
+    base: 14px,
+    ratio: 1.25
+);
+
+$typi-breakpoint: mappy-bp;
+
+$typi: (
+    base: (
+        null: (ms(1), 1.4),
+        small: (ms(0)),
+    ),
+    h1: (
+        null: (24px, 1.3),
+        small: (2.369em, 1.2),
+    ),
+    h2: (
+        null: (24px, 1.3),
+        small: (2.369em, 1.2),
+    ),
+    h3: (
+        null: (24px, 1.3),
+        small: (2.369em, 1.2),
+    )
+);
+
+h1 {
+    @include typi('h1');
+}
+h2 {
+    @include typi('h2');
+}
+
+h3 {
+    @include typi('h3');
+}
+
+
