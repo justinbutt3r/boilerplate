@@ -6,19 +6,55 @@
 
 import React from 'react';
 //import PropTypes from 'prop-types'; //uncomment if using proptypes
-{{#if wantCSS}}
+{{#if wantHeaders}}
+import Helmet from 'react-helmet';
+{{/if}}
+{{#if wantGraph}}
+import { graphql } from 'react-apollo'
+{{/if}}
+{{#if wantRouting}}
+import { Switch, Route, withRouter } from 'react-router';
+//import { Link } from 'react-router-dom';
+{{/if}}
+{{#if wantStyling}}
 import styles from './{{ properCase name }}.scss';
 {{/if}}
+{{#if wantGraph}}
+import { QueryName } from  '/{{properCase name }}Queries';
+{{/if}}
 
+{{#if wantGraph}}
+@graphql(QueryName)
+{{/if}}
+{{#if wantRouting}}
+@withRouter
+{{/if}}
 export default class {{ properCase name }} extends React.Component { // eslint-disable-line react/prefer-stateless-function
 
     render() {
         return (
-            {{#if wantCSS}}
+            {{#if wantStyling}}
             <div className={{curly true}}styles.{{ properCase name }}{{curly}}>
             {{else}}
             <div>
             {{/if}}
+                { /* want headers */ }
+                {{#if wantHeaders}}
+                <Helmet
+                    title="{{properCase name}}"
+                    meta={{curly true}}[
+                    {{curly true}} name: 'description', content: 'Description of {{properCase name}}' {{curly}},
+                    ]{{curly}}
+                />
+                {{/if}}
+
+                {{#if wantRouting}}
+                <Switch>
+                    <Route exact path="/" component={''} />
+                    <Route path="/:id" component={''} />
+                </Switch>
+                {{/if}}
+
             </div>
         );
     }
